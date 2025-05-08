@@ -52,7 +52,15 @@ public class MyController {
     //Delete
     @DeleteMapping("/employees/{id}")
     public void deleteEmployee(@PathVariable int id) {
+
         employeeService.deleteEmployee(id);
+    }
+
+
+    @GetMapping("/employees/name/{name}")
+    public List<Employee> getEmployeeByName(@PathVariable String name) {
+        List<Employee> emps = employeeService.findAllByName(name);
+        return emps;
     }
 
 }
